@@ -27,8 +27,9 @@ variable "virtual_networks" {
     resource_group_name = string
 
     ipam_pools = optional(list(object({
-      id            = string
-      prefix_length = number
+      id                     = string
+      prefix_length          = number
+      number_of_ip_addresses = optional(number)
     })))
 
     location = optional(string)
@@ -44,8 +45,9 @@ variable "virtual_networks" {
         name             = string
         address_prefixes = optional(list(string))
         ipam_pools = optional(list(object({
-          pool_id       = string
-          prefix_length = optional(number)
+          pool_id                = string
+          prefix_length          = optional(number)
+          number_of_ip_addresses = optional(number)
         })))
         nat_gateway = optional(object({
           id = string
