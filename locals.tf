@@ -109,6 +109,7 @@ locals {
         private_link_service_network_policies_enabled = subnet_v.private_link_service_network_policies_enabled
         route_table                                   = subnet_v.route_table != null ? { id = coalesce(subnet_v.route_table.id, try(local.virtual_network_subnet_route_table_available_resource_ids[subnet_v.route_table.key_reference], null)) } : null
         default_outbound_access_enabled               = subnet_v.default_outbound_access_enabled
+        ignore_route_table_changes                    = subnet_v.ignore_route_table_changes
         service_endpoints                             = subnet_v.service_endpoints
         service_endpoint_policies                     = subnet_v.service_endpoint_policies
         delegations                                   = subnet_v.delegations

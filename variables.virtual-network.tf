@@ -46,6 +46,7 @@ variable "virtual_networks" {
           key_reference = optional(string)
         }))
         default_outbound_access_enabled = optional(bool, false)
+        ignore_route_table_changes      = optional(bool, false)
         service_endpoints               = optional(set(string))
         service_endpoint_policies = optional(map(object({
           id = string
